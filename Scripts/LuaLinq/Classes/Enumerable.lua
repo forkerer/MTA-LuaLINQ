@@ -407,14 +407,6 @@ function Enumerable:Single(predicate, ...)
   	return foundElem
 end
 
-function Enumerable:SingleOrDefault(default, predicate, ...)
-	local res = self:Single(predicate, ...)
-	if not res then
-		res = default
-	end
-	return res
-end
-
 function Enumerable:ForEach(predicate, ...)
 	if self:Count() < 1 then return end
 
