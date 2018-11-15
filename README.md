@@ -38,7 +38,7 @@ Example code showing usage of enumerables
         :ToList() -- convert it back to normal list
 
     for _,num in ipairs(filtered) do
-        print(num)
+        print(num.inc)
     end
 
     -- We can also do some checks using the linq
