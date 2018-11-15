@@ -43,7 +43,7 @@ Example code showing usage of enumerables
 
     -- We can also do some checks using the linq
     local searchedNum = 2000
-    if enum:Any([[n,target => n == target]], target) then
+    if enum:Any([[n,target => n == target]], searchedNum) then
         print("We have our number!")
     end
 
