@@ -49,7 +49,7 @@ Example code showing usage of enumerables
 
     -- Or convert them to dictionaries easily
     local dict = enum
-        :AsDictionary([[num => "key_"..num, "val_"num]]) -- table will have form tab["key_num"] = "val_num"
+        :AsDictionary([[num => "key_"..num, "val_"..num]]) -- table will have form tab["key_num"] = "val_num"
         :ToDictionary() -- Convert to normal dictionary
 
     for ind,val in pairs(dict) do
