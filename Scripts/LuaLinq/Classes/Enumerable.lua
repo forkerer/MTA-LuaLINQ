@@ -306,9 +306,6 @@ function Enumerable:Reverse()
 	return enum
 end
 
-function Enumerable:GroupBy(predicate, ...)
-end
-
 function Enumerable:Distinct()
 	local enum = Enumerable()
 	enum.type = self.type
@@ -418,8 +415,23 @@ function Enumerable:ForEach(predicate, ...)
 	end
 end
 
-function Enumerable:Count()
-	return #self.data
+function Enumerable:Count(predicate, ...)
+	if not predicate then
+		return #self.data
+	end
+
+	local func = PredicateParser():GetPredicateFunction(predicate, ...)
+	if not func then
+		func = self.emptyFunc
+	end
+
+	local num = 0
+	for i=1,self:Count() do
+		if func(self.data[i], ...) then
+			num = num + 1
+		end
+	end
+	return num
 end
 
 function Enumerable:Sum(predicate, ...)

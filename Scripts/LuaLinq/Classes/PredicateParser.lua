@@ -113,6 +113,7 @@ function PredicateParser:GetPredicateFunction(pred, ...)
 		func = PredicateParser():GetQueryFunction(pred, 1, ...)
 	else
 		return false
+		-- error("Wrong argument to PredicateParser:GetPredicateFunction(), expected function or string predicate")
 	end
 	return func
 end
